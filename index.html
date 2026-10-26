@@ -114,7 +114,7 @@ function loadStudents(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}c
 function save(){localStorage.setItem(KEY,JSON.stringify(students))}
 function norm(s){return (s||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('ar')}
 function toast(s){$('toast').textContent=s;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2600)}
-function showMessage(name){let entry=students[norm(name)];let msg=entry?.message?.trim()||general;currentName=name;$('shownName').textContent=`إلى ${name} الجميلة 💗`;$('shownMessage').textContent=msg;$('entry').classList.add('hidden');$('result').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}
+function showMessage(name){let entry=students[norm(name)];let pool=defaults.filter(m=>m!==$('shownMessage').textContent);let msg=entry?.message?.trim()||(pool[Math.floor(Math.random()*pool.length)]||defaults[0]);currentName=name;$('shownName').textContent=`إلى ${name} الجميلة 💗`;$('shownMessage').textContent=msg;$('entry').classList.add('hidden');$('result').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}
 $('reveal').onclick=()=>{let n=$('studentName').value.trim();if(!n){toast('اكتبي اسمكِ أولًا يا جميلة 🌷');$('studentName').focus();return}showMessage(n)};
 $('studentName').addEventListener('keydown',e=>{if(e.key==='Enter')$('reveal').click()});
 $('back').onclick=()=>{$('result').classList.add('hidden');$('entry').classList.remove('hidden');$('studentName').value='';window.scrollTo({top:0,behavior:'smooth'})};
