@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هناك رسالة تنتظركِ 💌</title>
+<style>
+:root{--pink:#f5dce8;--lav:#e8e0f7;--cream:#fffaf7;--purple:#78628e;--gold:#d9b96e;--ink:#57485e}
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Tahoma,Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 10%,#fff 0 7%,transparent 28%),linear-gradient(135deg,#fff8f6,#f8eff8 48%,#eef4ff);overflow-x:hidden}
+body:before{content:"✦  ♡  ✧  ⋆  ♡  ✦";position:fixed;inset:4% 0 auto;text-align:center;color:#d7b8d2;letter-spacing:18px;font-size:25px;opacity:.65;pointer-events:none}
+.wrap{width:min(760px,92%);margin:0 auto;padding:38px 0 50px;position:relative}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.tiny{border:1px solid #ead9e9;background:#ffffffa8;color:var(--purple);border-radius:99px;padding:9px 14px;cursor:pointer;font-size:13px}
+.hero{text-align:center;padding:32px 10px 18px}.envelope{font-size:54px;filter:drop-shadow(0 8px 10px #d8bfd3)}h1{font-size:clamp(29px,6vw,45px);line-height:1.45;margin:10px 0;color:#765b86} .subtitle{font-size:17px;line-height:1.9;margin:0 auto;max-width:560px;color:#8a758f}
+.panel{background:#ffffffd9;border:1px solid #fff;box-shadow:0 18px 55px #9d80aa1c;border-radius:28px;padding:clamp(20px,5vw,36px);margin:20px 0;backdrop-filter:blur(8px)}
+label{display:block;font-weight:bold;margin:0 0 10px}input,textarea,select{font:inherit;width:100%;border:1px solid #e5d5e8;background:#fffdfd;border-radius:15px;padding:14px 15px;color:var(--ink);outline:none;margin-bottom:16px}input:focus,textarea:focus{border-color:#b69ac8;box-shadow:0 0 0 3px #eee4f5}textarea{min-height:95px;resize:vertical}
+.btn{font:inherit;border:0;border-radius:15px;padding:14px 20px;cursor:pointer;font-weight:bold;transition:.2s}.btn:hover{transform:translateY(-2px)}.primary{background:linear-gradient(120deg,#cbb5df,#e9bdd2);color:#553f66;box-shadow:0 8px 20px #c7a9d633}.secondary{background:#f6edf8;color:#735b83}.row{display:flex;gap:10px;flex-wrap:wrap}.row .btn{flex:1}
+.note{font-size:13px;line-height:1.8;color:#9b879e;text-align:center;margin:10px 0 0}
+.hidden{display:none!important}
+.message-card{position:relative;text-align:center;padding:30px 22px;border-radius:25px;background:linear-gradient(145deg,#fffafd,#f8f1ff);border:1px solid #f0dfef;overflow:hidden}
+.message-card:before{content:"♡";position:absolute;top:-28px;right:10px;font-size:100px;color:#f2dbe9;opacity:.7}
+.student-name{font-size:25px;font-weight:bold;color:#8a6798;margin:8px 0 18px;position:relative}
+.message-text{font-size:21px;line-height:2.1;position:relative;white-space:pre-wrap}
+.signature{margin-top:22px;font-size:14px;color:#a184a7}
+.sparkles{font-size:23px;letter-spacing:8px;color:#c6a3ce}
+.teacher h2{margin-top:0;color:#765b86}.teacher-tools{display:flex;gap:9px;flex-wrap:wrap}.teacher-tools>*{flex:1}
+.list{display:grid;gap:10px;margin-top:14px}.item{background:#fff9fd;border:1px solid #f0e3f0;border-radius:15px;padding:13px;display:flex;align-items:center;justify-content:space-between;gap:10px}.item small{display:block;color:#98849c;line-height:1.6}.danger{background:#fae8e8;color:#9d4b56;padding:9px 12px;border-radius:10px;border:0;cursor:pointer}
+footer{text-align:center;font-size:12px;color:#aa96ad;padding:20px 0}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#665174;color:white;padding:12px 18px;border-radius:14px;box-shadow:0 8px 24px #0002;z-index:5;max-width:90%;text-align:center}
+@media print{body{background:white}.top,.hero,.entry,.teacher,.actions,footer,.tiny{display:none!important}.wrap{width:100%;padding:0}.panel{box-shadow:none;border:0}.message-card{border:2px solid #eadbea;min-height:70vh;display:flex;flex-direction:column;justify-content:center}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><span class="tiny">✨ مساحة لطيفة لكِ</span><button class="tiny" id="teacherToggle">لوحة المعلمة 🔐</button></div>
+  <header class="hero">
+    <div class="envelope">💌</div>
+    <h1>هناك رسالة تنتظركِ</h1>
+    <p class="subtitle">معكِ رسالة مميزة، كُتبت لكِ وحدكِ…<br>اكتشفي الكلمات التي تنتظركِ بكل حب ✨</p>
+  </header>
+
+  <section class="panel entry" id="entry">
+    <label for="studentName">ما اسمكِ الجميل؟ 🌷</label>
+    <input id="studentName" autocomplete="name" placeholder="اكتبي اسمكِ هنا…" maxlength="70">
+    <button class="btn primary" id="reveal" style="width:100%">✨ ابحثي عن رسالتكِ</button>
+    <p class="note">كل طالبة تستحق كلمة طيبة تذكّرها بتميّزها وقدرتها على النجاح.</p>
+  </section>
+
+  <section class="panel hidden" id="result" aria-live="polite">
+    <div class="message-card">
+      <div class="sparkles">✦ ✧ ✦</div>
+      <div class="student-name" id="shownName"></div>
+      <div class="message-text" id="shownMessage"></div>
+      <div class="signature">بكل فخر ومحبة، معلمتكِ 💗</div>
+    </div>
+    <div class="row actions" style="margin-top:18px">
+      <button class="btn secondary" id="another">💫 رسالة أخرى</button>
+      <button class="btn primary" id="back">العودة للبداية</button>
+    </div>
+  </section>
+
+  <section class="panel teacher hidden" id="teacherPanel">
+    <h2>لوحة المعلمة 🌸</h2>
+    <p class="note" style="text-align:right">أضيفي أسماء الطالبات ورسائلهن، أو استوردي قائمة CSV. تُحفظ البيانات على هذا المتصفح فقط.</p>
+    <label for="pin">رمز الدخول</label>
+    <input id="pin" type="password" inputmode="numeric" placeholder="الرمز الافتراضي: 2468">
+    <button class="btn secondary" id="unlock">فتح لوحة التحكم</button>
+    <div id="admin" class="hidden">
+      <div style="height:1px;background:#eee0ef;margin:22px 0"></div>
+      <label for="newName">اسم الطالبة</label><input id="newName" placeholder="مثال: نورة">
+      <label for="newMessage">الرسالة التحفيزية</label><textarea id="newMessage" placeholder="أنتِ قادرة على تحقيق أحلامكِ، وخطواتكِ الصغيرة تصنع فرقًا كبيرًا…"></textarea>
+      <div class="row">
+        <button class="btn primary" id="saveStudent">حفظ الرسالة</button>
+        <button class="btn secondary" id="randomMessage">اختيار رسالة جاهزة</button>
+      </div>
+      <div style="height:1px;background:#eee0ef;margin:22px 0"></div>
+      <label for="csvFile">استيراد قائمة الطالبات (CSV)</label>
+      <input id="csvFile" type="file" accept=".csv,text/csv">
+      <p class="note" style="text-align:right">صيغة مقترحة: الاسم,الرسالة — ويمكن ترك الرسالة فارغة لتعيين رسالة عامة لاحقًا.</p>
+      <div class="teacher-tools">
+        <button class="btn secondary" id="exportCsv">تصدير CSV</button>
+        <button class="btn secondary" id="printAll">طباعة قائمة الرسائل</button>
+        <button class="btn secondary" id="downloadBackup">نسخة احتياطية JSON</button>
+      </div>
+      <label for="generalMessage" style="margin-top:22px">رسالة عامة لمن لم يُسجّل اسمها</label>
+      <textarea id="generalMessage">تذكّري أنكِ مميزة، وأن كل محاولة تقومين بها تقرّبكِ من أحلامكِ. ثقي بنفسكِ، فأنتِ قادرة على أشياء رائعة! 💗</textarea>
+      <button class="btn primary" id="saveGeneral" style="width:100%">حفظ الرسالة العامة</button>
+      <h3>قائمة الرسائل <span id="count"></span></h3>
+      <div class="list" id="studentList"></div>
+      <button class="btn secondary" id="lock" style="margin-top:16px;width:100%">إغلاق لوحة التحكم</button>
+      <p class="note">تنبيه خصوصية: رمز الدخول يحمي واجهة اللوحة فقط، وليس تشفيرًا أمنيًا. لا تضعي بيانات حساسة، واستخدمي هذا الملف على جهاز موثوق.</p>
+    </div>
+  </section>
+  <footer>صُنعت بمحبة لتزرع كلمة طيبة في يوم كل طالبة 💕</footer>
+</div>
+<div id="toast" class="toast hidden" role="status"></div>
+<script>
+const KEY='messageWaitsStudents_v1', GEN='messageWaitsGeneral_v1';
+const defaults=[
+'أنتِ قادرة على تحقيق أحلامكِ، وخطواتكِ الصغيرة تصنع فرقًا كبيرًا. استمري، فأنتِ رائعة! 💗',
+'ثقي بنفسكِ؛ ففي داخلكِ قوة وأفكار جميلة تستحق أن ترى النور. ✨',
+'ليس مطلوبًا منكِ أن تكوني كاملة، بل أن تتعلمي وتحاولي وتنمو كل يوم. 🌷',
+'اجتهادكِ اليوم هو بذرة نجاحكِ غدًا. أنا فخورة بمحاولاتكِ وتقدّمكِ. 🌟',
+'لطفكِ هدية، وابتسامتكِ أثر جميل. لا تستهيني أبدًا بما تضيفينه للعالم. 💕',
+'لكِ موهبة تميّزكِ وطريق خاص ينتظركِ. اكتشفيها بشجاعة وامنحي نفسكِ فرصة. 🦋',
+'كل سؤال تسألينه وكل خطأ تتعلمين منه خطوة نحو نسخة أقوى من نفسكِ. 🌈',
+'أنتِ تستحقين الاحترام والفرح والنجاح. تذكّري أن صوتكِ وأفكاركِ مهمّة. 💐',
+'أنا أؤمن بقدرتكِ على تجاوز الصعوبات؛ خذي نفسًا، وابدئي خطوة واحدة. 💫',
+'كوني فخورة بنفسكِ، ليس فقط عند الفوز، بل في كل مرة تحاولين فيها من جديد. 🌸'
+];
+let students=loadStudents(), general=localStorage.getItem(GEN)||'تذكّري أنكِ مميزة، وأن كل محاولة تقومين بها تقرّبكِ من أحلامكِ. ثقي بنفسكِ، فأنتِ قادرة على أشياء رائعة! 💗';
+let currentName='';
+const $=id=>document.getElementById(id);
+function loadStudents(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return {}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(students))}
+function norm(s){return (s||'').trim().replace(/\s+/g,' ').toLocaleLowerCase('ar')}
+function toast(s){$('toast').textContent=s;$('toast').classList.remove('hidden');setTimeout(()=>$('toast').classList.add('hidden'),2600)}
+function showMessage(name){let entry=students[norm(name)];let msg=entry?.message?.trim()||general;currentName=name;$('shownName').textContent=`إلى ${name} الجميلة 💗`;$('shownMessage').textContent=msg;$('entry').classList.add('hidden');$('result').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'})}
+$('reveal').onclick=()=>{let n=$('studentName').value.trim();if(!n){toast('اكتبي اسمكِ أولًا يا جميلة 🌷');$('studentName').focus();return}showMessage(n)};
+$('studentName').addEventListener('keydown',e=>{if(e.key==='Enter')$('reveal').click()});
+$('back').onclick=()=>{$('result').classList.add('hidden');$('entry').classList.remove('hidden');$('studentName').value='';window.scrollTo({top:0,behavior:'smooth'})};
+$('another').onclick=()=>{let pool=defaults.filter(m=>m!==$('shownMessage').textContent);$('shownMessage').textContent=pool[Math.floor(Math.random()*pool.length)];toast('تذكّري أن الكلمات الجميلة تليق بكِ 💕')};
+$('teacherToggle').onclick=()=>{$('teacherPanel').classList.toggle('hidden');$('teacherPanel').scrollIntoView({behavior:'smooth',block:'start'})};
+$('unlock').onclick=()=>{if($('pin').value==='2468'){$('admin').classList.remove('hidden');$('pin').classList.add('hidden');$('unlock').classList.add('hidden');$('generalMessage').value=general;renderList();toast('أهلًا بكِ يا معلمتي 🌷')}else toast('رمز الدخول غير صحيح')};
+$('lock').onclick=()=>{$('admin').classList.add('hidden');$('pin').classList.remove('hidden');$('unlock').classList.remove('hidden');$('pin').value=''};
+$('saveStudent').onclick=()=>{let name=$('newName').value.trim(),message=$('newMessage').value.trim();if(!name){toast('أضيفي اسم الطالبة أولًا');return}students[norm(name)]={name,message};save();$('newName').value='';$('newMessage').value='';renderList();toast('تم حفظ رسالة '+name+' 💗')};
+$('randomMessage').onclick=()=>{$('newMessage').value=defaults[Math.floor(Math.random()*defaults.length)]};
+$('saveGeneral').onclick=()=>{general=$('generalMessage').value.trim()||defaults[0];localStorage.setItem(GEN,general);toast('تم حفظ الرسالة العامة')};
+function renderList(){let list=$('studentList');list.innerHTML='';let entries=Object.entries(students).sort((a,b)=>a[1].name.localeCompare(b[1].name,'ar'));$('count').textContent=`(${entries.length})`;if(!entries.length){list.innerHTML='<p class="note">لم تُضف أسماء بعد. يمكنكِ إضافة الأسماء من الأعلى.</p>';return}for(let [k,s] of entries){let d=document.createElement('div');d.className='item';let info=document.createElement('div');let b=document.createElement('strong');b.textContent=s.name;let small=document.createElement('small');small.textContent=s.message||'ستظهر الرسالة العامة لهذه الطالبة';info.append(b,small);let del=document.createElement('button');del.className='danger';del.textContent='حذف';del.onclick=()=>{if(confirm('حذف رسالة '+s.name+'؟')){delete students[k];save();renderList()}};let edit=document.createElement('button');edit.className='tiny';edit.textContent='تعديل';edit.onclick=()=>{$('newName').value=s.name;$('newMessage').value=s.message;$('newName').focus()};d.append(info,edit,del);list.append(d)}}
+function csvEscape(v){return '"'+String(v||'').replace(/"/g,'""')+'"'}
+$('exportCsv').onclick=()=>{let rows=[['الاسم','الرسالة'],...Object.values(students).map(s=>[s.name,s.message])];download('\uFEFF'+rows.map(r=>r.map(csvEscape).join(',')).join('\r\n'),'رسائل-الطالبات.csv','text/csv;charset=utf-8')};
+$('downloadBackup').onclick=()=>download(JSON.stringify({students,general},null,2),'نسخة-رسائل-الطالبات.json','application/json');
+function download(data,name,type){let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type}));a.download=name;a.click();URL.revokeObjectURL(a.href)}
+$('csvFile').onchange=async e=>{let f=e.target.files[0];if(!f)return;let txt=(await f.text()).replace(/^\uFEFF/,'');let lines=txt.split(/\r?\n/).filter(x=>x.trim());let added=0;for(let i=0;i<lines.length;i++){let cols=parseCsvLine(lines[i]);if(i===0&&/الاسم|name/i.test(cols[0]))continue;let name=(cols[0]||'').trim(),message=(cols[1]||'').trim();if(name){students[norm(name)]={name,message};added++}}save();renderList();toast(`تم استيراد ${added} اسمًا`);e.target.value=''};
+function parseCsvLine(line){let out=[],v='',q=false;for(let i=0;i<line.length;i++){let c=line[i];if(c==='"'&&q&&line[i+1]==='"'){v+='"';i++}else if(c==='"')q=!q;else if(c===','&&!q){out.push(v);v=''}else v+=c}out.push(v);return out}
+$('printAll').onclick=()=>{let entries=Object.values(students);if(!entries.length){toast('أضيفي أسماء الطالبات أولًا');return}let w=window.open('','_blank');if(!w){toast('اسمحي بفتح نافذة الطباعة من المتصفح');return}w.document.write('<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><title>رسائل الطالبات</title><style>body{font-family:Tahoma,Arial;padding:20px}.card{border:1px solid #d9c4df;border-radius:16px;padding:22px;margin:12px 0;page-break-inside:avoid;text-align:center}h2{color:#80618d}.msg{font-size:18px;line-height:2}</style><h1>هناك رسالة تنتظركِ 💌</h1>'+entries.map(s=>`<div class="card"><h2>إلى ${escapeHtml(s.name)} 💗</h2><div class="msg">${escapeHtml(s.message||general)}</div><p>بكل فخر ومحبة، معلمتكِ</p></div>`).join(''));w.document.close();w.focus();w.print()};
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+</script>
+</body>
+</html>
